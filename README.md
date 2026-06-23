@@ -11,7 +11,7 @@ This library was developed using
 **[https://github.com/argeorun/BACnet-MSTP-Arduino](https://github.com/argeorun/BACnet-MSTP-Arduino)**
 as the primary reference implementation.
 
-That project contains the full standalone Arduino sketch (`BACnetMSTP-Arduino-R1.ino`) with board-specific platform code, MS/TP datalink adaptation, and BACnet object definitions that this library packages into the Arduino Library Manager format.
+That project contains the full standalone Arduino sketch (`BACnetMSTP-Arduino.ino`) with board-specific platform code, MS/TP datalink adaptation, and BACnet object definitions that this library packages into the Arduino Library Manager format.
 
 ---
 
