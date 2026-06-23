@@ -12,8 +12,6 @@ This library was developed using
 as the primary reference implementation which wraps the open-source [bacnet-stack](https://github.com/bacnet-stack/bacnet-stack) and exposes a clean C++ API via `BACnetMSTP.h`.
 
 
-That project contains the full standalone Arduino sketch (`BACnetMSTP-Arduino.ino`) with board-specific platform code, MS/TP datalink adaptation, and BACnet object definitions that this library packages into the Arduino Library Manager format.
-
 ---
 
 ## Based On 
