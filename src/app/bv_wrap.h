@@ -1,4 +1,11 @@
 /**
+ * Copyright (c) 2025-2026 George Arun
+ *
+ * This file is part of the BACnet MSTP Arduino library wrapper layer.
+ * Licensed under the MIT License. See LICENSE in the project root.
+ */
+
+/**
  * @file bv_wrap.h
  * @brief Companion declaration header for bv.c — C++ wrapper use only.
  *

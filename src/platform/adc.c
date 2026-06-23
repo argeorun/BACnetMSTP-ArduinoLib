@@ -1,4 +1,11 @@
 /**
+ * Copyright (c) 2025-2026 George Arun
+ *
+ * This file is part of the BACnet MSTP Arduino project.
+ * Licensed under the MIT License. See LICENSE in the project root.
+ */
+
+/**
  * Arduino-compatible ADC wrapper
  * This file replaces AVR-specific ADC ISR and register usage with
  * Arduino IDE friendly calls (analogRead, noInterrupts/interrupts,

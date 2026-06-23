@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2025-2026 George Arun
+ *
+ * This file is part of the BACnet MSTP Arduino project.
+ * Licensed under the MIT License. See LICENSE in the project root.
+ */
+
 #ifndef PIN_CONFIG_H
 #define PIN_CONFIG_H
 

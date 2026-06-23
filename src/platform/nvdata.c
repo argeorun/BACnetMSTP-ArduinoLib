@@ -1,4 +1,14 @@
 /**
+ * Copyright (c) 2015 Steve Karg
+ * Copyright (c) 2025-2026 George Arun
+ *
+ * Based on bacnet-stack non-volatile data handling and adapted for Arduino.
+ * Upstream portions retain original bacnet-stack licensing.
+ * Arduino adaptation is licensed under the MIT License.
+ * See LICENSE in the project root.
+ */
+
+/**
  * @file
  * @brief Handle Get/Set of non-volatile data
  * @date July 8, 2015

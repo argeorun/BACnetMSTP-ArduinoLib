@@ -1,4 +1,11 @@
 /**
+ * Copyright (c) 2025-2026 George Arun
+ *
+ * This file is part of the BACnet MSTP Arduino project.
+ * Licensed under the MIT License. See LICENSE in the project root.
+ */
+
+/**
  * @file compile_config.h
  * @brief Compile-time configuration flags for Arduino BACnet project
  * @note This file replaces compiler flags that would normally be set in Makefile
