@@ -1,7 +1,7 @@
 ﻿# BACnetMSTP — Arduino Library
 
 An Arduino library that brings **BACnet MS/TP** (RS-485 fieldbus) connectivity to Arduino-compatible boards.
-It wraps the open-source [bacnet-stack](https://github.com/bacnet-stack/bacnet-stack) and exposes a clean C++ API via `BACnetMSTP.h`.
+
 
 ---
 
@@ -9,13 +9,14 @@ It wraps the open-source [bacnet-stack](https://github.com/bacnet-stack/bacnet-s
 
 This library was developed using
 **[https://github.com/argeorun/BACnet-MSTP-Arduino](https://github.com/argeorun/BACnet-MSTP-Arduino)**
-as the primary reference implementation.
+as the primary reference implementation which wraps the open-source [bacnet-stack](https://github.com/bacnet-stack/bacnet-stack) and exposes a clean C++ API via `BACnetMSTP.h`.
+
 
 That project contains the full standalone Arduino sketch (`BACnetMSTP-Arduino.ino`) with board-specific platform code, MS/TP datalink adaptation, and BACnet object definitions that this library packages into the Arduino Library Manager format.
 
 ---
 
-## Based On
+## Based On 
 
 This library is built on the
 **[bacnet-stack](https://github.com/bacnet-stack/bacnet-stack)** open-source library
