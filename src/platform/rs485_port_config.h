@@ -26,6 +26,9 @@
 #elif defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_IDF_TARGET_ESP32S3)
   #define RS485_PORT Serial2
 
+#elif defined(ARDUINO_ARCH_ESP32)
+  #define RS485_PORT Serial2
+
 #else
   #define RS485_PORT Serial
 

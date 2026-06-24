@@ -72,7 +72,7 @@
  *   Mega 2560           Serial1           D18       D19       BACNET_DERE_PIN (D2)
  *   STM32 F103C8        Serial_RS485(*)   PB10      PB11      PA12
  *   STM32 Nucleo-144    Serial6(*)        PG14      PG9       PA12
- *   ESP32               Serial1           GPIO25    GPIO26    GPIO18 (PIN_D8)
+ *   ESP32               Serial2           GPIO17    GPIO16    GPIO18 (PIN_D8)
  *   ESP32-S3            Serial2           GPIO17    GPIO16    GPIO2  (PIN_D8)
  *
  *   (*) HardwareSerial instance is declared inside the library and
@@ -147,12 +147,12 @@
 
 /* ----------------------------------------------------------------
  * OPTION E — ESP32
- *   RS-485 port : Serial1  (TX=GPIO25, RX=GPIO26)
- *   DE/RE pin   : GPIO2
+ *   RS-485 port : Serial2  (TX=GPIO17, RX=GPIO16)
+ *   DE/RE pin   : GPIO18
  *   USB debug   : available on Serial
  * ---------------------------------------------------------------- */
-//#define BACNET_RS485_SERIAL    Serial1
-//#define BACNET_DERE_PIN        2
+//#define BACNET_RS485_SERIAL    Serial2
+//#define BACNET_DERE_PIN        18
 //#define BACNET_DEBUG_UART_FREE 1
 
 /* ----------------------------------------------------------------
@@ -200,9 +200,9 @@
 #    define BACNET_DEBUG_UART_FREE 1
 
 #  elif defined(ARDUINO_ARCH_ESP32)
-     /* ESP32 — Serial1 */
-#    define BACNET_RS485_SERIAL    Serial1
-#    define BACNET_DERE_PIN        2
+    /* ESP32 — Serial2 */
+#    define BACNET_RS485_SERIAL    Serial2
+#    define BACNET_DERE_PIN        18
 #    define BACNET_DEBUG_UART_FREE 1
 
 #  else

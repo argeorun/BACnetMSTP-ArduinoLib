@@ -23,7 +23,7 @@ In **arduino-cli**: use `--fqbn` (see build commands below).
 > | B      | Arduino Mega 2560                  | `Serial1`   | D18    | D19    | D2        |
 > | C      | STM32 Blue Pill / Black Pill F103C8| `USART3`    | PB10   | PB11   | PA12      |
 > | D      | STM32 Nucleo-144 (F756ZG etc.)     | `USART6`    | PG14   | PG9    | PA12      |
-> | E      | ESP32                              | `Serial1`   | GPIO25 | GPIO26 | GPIO2     |
+> | E      | ESP32                              | `Serial2`   | GPIO17 | GPIO16 | GPIO18    |
 > | F      | ESP32-S3                           | `Serial2`   | GPIO17 | GPIO16 | GPIO2     |
 >
 > Then comment out all the other OPTION blocks and the `AUTO-DETECT` section.
@@ -122,7 +122,7 @@ Changes are saved to EEPROM and take effect on next reset.
 | **Arduino Uno**   | `Serial` (only UART) | D1 | D0 | D2 (`BACNET_DERE_PIN`) |
 | **Arduino Mega**  | `Serial1`       | TX1 (D18) | RX1 (D19) | D2 |
 | **STM32 F103C8**  | `Serial_RS485` (USART3) | PB10 | PB11 | PA12 (`PIN_D8`) |
-| **ESP32**         | `Serial1`       | GPIO25 | GPIO26 | GPIO18 (`PIN_D8`) |
+| **ESP32**         | `Serial2`       | GPIO17 | GPIO16 | GPIO18 (`PIN_D8`) |
 | **ESP32-S3**      | `Serial2`       | GPIO17 | GPIO16 | GPIO2 (`PIN_D8`) |
 
 > **Uno note:** Because the Uno has only one hardware UART, `Serial` is used for
@@ -133,7 +133,7 @@ To change the RS-485 port or DE/RE pin, edit the two `#define` lines near the
 top of `BACnetBasicServer.ino`:
 
 ```cpp
-#define BACNET_RS485_SERIAL   Serial1   // ← your HardwareSerial port
+#define BACNET_RS485_SERIAL   Serial2   // ← your HardwareSerial port
 #define BACNET_DERE_PIN       4         // ← your DE/RE Arduino pin number
 ```
 

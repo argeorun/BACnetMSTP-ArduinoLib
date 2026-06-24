@@ -69,7 +69,7 @@ void RS485_Initialize(void)
     pinMode(RS485_Enable_Pin, OUTPUT);
     RS485_Transmitter_Enable(false);    /* start in receive mode */
 
-#if defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_IDF_TARGET_ESP32S3)
+#if defined(ARDUINO_ARCH_ESP32)
     RS485_Serial->begin(RS485_Baud, SERIAL_8N1, PIN_UART2_RX, PIN_UART2_TX);
 #else
     RS485_Serial->begin(RS485_Baud);
@@ -123,7 +123,7 @@ bool RS485_Set_Baud_Rate(uint32_t baud)
         case 115200:
             RS485_Baud = baud;
             RS485_Serial->end();
-#if defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_IDF_TARGET_ESP32S3)
+#if defined(ARDUINO_ARCH_ESP32)
             RS485_Serial->begin(RS485_Baud, SERIAL_8N1, PIN_UART2_RX, PIN_UART2_TX);
 #else
             RS485_Serial->begin(RS485_Baud);

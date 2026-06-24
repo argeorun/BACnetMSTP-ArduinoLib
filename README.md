@@ -48,7 +48,7 @@ See [`LICENSE`](LICENSE) for the full upstream license notice.
 | Arduino Mega 2560                  | `Serial1`   | D18    | D19    | D2        |
 | STM32 F103C8 (Blue Pill)           | USART3      | PB10   | PB11   | PA12      |
 | STM32 Nucleo-144 (F756ZG / F746ZG) | USART6      | PG14   | PG9    | PA12      |
-| ESP32                              | `Serial1`   | GPIO25 | GPIO26 | GPIO18    |
+| ESP32                              | `Serial2`   | GPIO17 | GPIO16 | GPIO18    |
 | ESP32-S3                           | `Serial2`   | GPIO17 | GPIO16 | GPIO2     |
 
 > Any RS-485 transceiver compatible with your board's logic level works (e.g. MAX485, SN75176, SP3485).
