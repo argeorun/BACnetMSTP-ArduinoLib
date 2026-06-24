@@ -36,7 +36,19 @@ See [`LICENSE`](LICENSE) for the full upstream license notice.
 - **Who-Is / I-Am** discovery support
 - **EEPROM persistence**: device instance, MAC address, baud rate
 - **Runtime diagnostics**: uptime hours (AV:99), C-stack headroom (AV:98)
-- Verified with **YABE BACnet Explorer** over RS-485
+- Validated with **YABE BACnet Explorer** over RS-485 on tested boards
+
+---
+
+## Board Test Status
+
+| Board | Status |
+|-------|--------|
+| Arduino Uno | Tested |
+| Arduino Mega 2560 | Tested |
+| ESP32 (generic dev kit) | Tested |
+| ESP32-S3 | Not tested yet |
+| STM32 F103C8 / STM32 Nucleo-144 | Not tested yet |
 
 ---
 

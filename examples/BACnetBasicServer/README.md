@@ -3,6 +3,16 @@
 Minimal BACnet MS/TP server for the **BACnetMSTP** Arduino library.  
 Supported boards: **Uno, Mega 2560, STM32 F103C8 (Blue Pill), STM32 Nucleo-144 (F756ZG / F746ZG / F429ZI), ESP32, ESP32-S3**.
 
+## Board Test Status
+
+| Board | Status |
+|-------|--------|
+| Arduino Uno | Tested |
+| Arduino Mega 2560 | Tested |
+| ESP32 (generic dev kit) | Tested |
+| ESP32-S3 | Not tested yet |
+| STM32 F103C8 / STM32 Nucleo-144 | Not tested yet |
+
 ---
 
 ## Quick Start — 3 Steps
