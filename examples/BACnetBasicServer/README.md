@@ -27,14 +27,14 @@ In **arduino-cli**: use `--fqbn` (see build commands below).
 > **Override manually** only if auto-detect picks the wrong port.  
 > Open `BACnetBasicServer.ino` and uncomment exactly **one** of the OPTION blocks (A–F):
 >
-> | OPTION | Board                              | RS-485 UART | TX pin | RX pin | DE/RE pin |
-> |--------|------------------------------------|-------------|--------|--------|-----------|
-> | A      | Arduino Uno / Nano / Pro Mini      | `Serial`    | D1     | D0     | D2        |
-> | B      | Arduino Mega 2560                  | `Serial1`   | D18    | D19    | D2        |
-> | C      | STM32 Blue Pill / Black Pill F103C8| `USART3`    | PB10   | PB11   | PA12      |
-> | D      | STM32 Nucleo-144 (F756ZG etc.)     | `USART6`    | PG14   | PG9    | PA12      |
-> | E      | ESP32                              | `Serial2`   | GPIO17 | GPIO16 | GPIO18    |
-> | F      | ESP32-S3                           | `Serial2`   | GPIO17 | GPIO16 | GPIO2     |
+> | OPTION | Board                              | RS-485 UART | TX pin | RX pin | DE/RE pin | Test status |
+> |--------|------------------------------------|-------------|--------|--------|-----------|-------------|
+> | A      | Arduino Uno / Nano / Pro Mini      | `Serial`    | D1     | D0     | D2        | Tested      |
+> | B      | Arduino Mega 2560                  | `Serial1`   | D18    | D19    | D2        | Tested      |
+> | C      | STM32 Blue Pill / Black Pill F103C8| `USART3`    | PB10   | PB11   | PA12      | Not tested yet |
+> | D      | STM32 Nucleo-144 (F756ZG etc.)     | `USART6`    | PG14   | PG9    | PA12      | Not tested yet |
+> | E      | ESP32                              | `Serial2`   | GPIO17 | GPIO16 | GPIO18    | Tested      |
+> | F      | ESP32-S3                           | `Serial2`   | GPIO17 | GPIO16 | GPIO2     | Not tested yet |
 >
 > Then comment out all the other OPTION blocks and the `AUTO-DETECT` section.
 
