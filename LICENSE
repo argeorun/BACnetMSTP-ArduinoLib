@@ -30,7 +30,8 @@ This repository includes and/or derives from the bacnet-stack library:
 
 Files under src/bacnet/ and derived adaptations in src/app/ and
 src/platform/dlmstp.c retain the license of the original bacnet-stack source.
-Those files carry per-file SPDX license identifiers in their headers:
+Those files carry per-file SPDX license identifiers in their headers,
+and those per-file notices are authoritative:
 
   SPDX-License-Identifier: GPL-2.0-or-later WITH GCC-exception-2.0
   SPDX-License-Identifier: MIT
@@ -47,4 +48,11 @@ Original bacnet-stack authors include (but are not limited to):
   Nikola Jelic <nikola.jelic@euroicc.com>
   and other contributors listed at https://github.com/bacnet-stack/bacnet-stack
 
-Full GPL-2.0-or-later license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Repository-level ownership and notices:
+  - Original wrapper/platform integration work in this repository:
+      Copyright (c) 2025-2026 George Arun
+  - Detailed third-party mapping and attribution:
+      THIRD_PARTY_NOTICES.md
+
+Full GPL-2.0-or-later license text (local copy):
+  LICENSES/GPL-2.0-or-later.txt
