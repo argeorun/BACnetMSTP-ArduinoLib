@@ -30,6 +30,20 @@ static uint8_t         RS485_Enable_Pin = PIN_D8;
 static uint32_t        RS485_Baud       = 9600;
 static struct mstimer  Silence_Timer    = { 0, 0 };
 
+static void RS485_Serial_Begin(uint32_t baud)
+{
+#if defined(ARDUINO_ARCH_ESP32)
+    /* Force a clean remap/restart of UART on ESP32 family.
+     * This reduces post-upload instability on some ESP32-S3 boards. */
+    RS485_Serial->end();
+    delay(10);
+    RS485_Serial->begin(baud, SERIAL_8N1, RS485_UART_RX_PIN, RS485_UART_TX_PIN);
+    delay(10);
+#else
+    RS485_Serial->begin(baud);
+#endif
+}
+
 /* =========================================================================
  * Runtime overrides — called by BACnetPort::begin()
  * ========================================================================= */
@@ -69,11 +83,7 @@ void RS485_Initialize(void)
     pinMode(RS485_Enable_Pin, OUTPUT);
     RS485_Transmitter_Enable(false);    /* start in receive mode */
 
-#if defined(ARDUINO_ARCH_ESP32)
-    RS485_Serial->begin(RS485_Baud, SERIAL_8N1, PIN_UART2_RX, PIN_UART2_TX);
-#else
-    RS485_Serial->begin(RS485_Baud);
-#endif
+    RS485_Serial_Begin(RS485_Baud);
 
     RS485_Timer_Silence_Reset();
 }
@@ -122,12 +132,7 @@ bool RS485_Set_Baud_Rate(uint32_t baud)
         case 76800:
         case 115200:
             RS485_Baud = baud;
-            RS485_Serial->end();
-#if defined(ARDUINO_ARCH_ESP32)
-            RS485_Serial->begin(RS485_Baud, SERIAL_8N1, PIN_UART2_RX, PIN_UART2_TX);
-#else
-            RS485_Serial->begin(RS485_Baud);
-#endif
+            RS485_Serial_Begin(RS485_Baud);
             return true;
         default:
             return false;

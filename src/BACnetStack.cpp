@@ -26,6 +26,7 @@ extern "C" {
 #include "bacnet/basic/npdu/h_npdu.h"       /* npdu_handler */
 #include "bacnet/basic/sys/mstimer.h"       /* mstimer_init */
 #include "platform/adc.h"                   /* adc_init */
+extern bool Send_I_Am_Flag;                 /* defined in app/h_whois.c */
 }
 
 /* Catch platforms where float is not 32-bit (catches exotic DSP toolchains) */
@@ -163,3 +164,14 @@ BACnetAnalogValue &BACnetMSTP::analogValues() { return _av; }
 BACnetBinaryValue &BACnetMSTP::binaryValues() { return _bv; }
 BACnetPort        &BACnetMSTP::port()         { return _port; }
 BACnetNVData      &BACnetMSTP::nvdata()       { return _nvdata; }
+
+/* =========================================================================
+ * sendIAm() — queue an unsolicited I-Am broadcast
+ * Sets the global flag consumed by dlmstp.c / handler_who_is on next tick.
+ * ========================================================================= */
+void BACnetMSTP::sendIAm()
+{
+    if (_initialised) {
+        Send_I_Am_Flag = true;
+    }
+}

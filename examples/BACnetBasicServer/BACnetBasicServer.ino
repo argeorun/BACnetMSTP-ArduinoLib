@@ -43,7 +43,7 @@
  *   AV:96     MCU Frequency      CPU clock (Hz)         No
  *   AV:97     CStack Size        C stack total (bytes)  No
  *   AV:98     CStack Unused      C stack headroom       No
- *   AV:99     Uptime             Updated in loop() (h)  No (sketch writes)
+ *   AV:99     Uptime             Updated in loop() (h)   No (sketch writes)
  *
  *   To add/change AV objects: edit src/app/av.c → Object_List[]
  *
@@ -158,11 +158,11 @@
 /* ----------------------------------------------------------------
  * OPTION F — ESP32-S3
  *   RS-485 port : Serial2  (TX=GPIO17, RX=GPIO16)
- *   DE/RE pin   : GPIO2
+ *   DE/RE pin   : GPIO18 (recommended stable default)
  *   USB debug   : available on Serial
  * ---------------------------------------------------------------- */
 //#define BACNET_RS485_SERIAL    Serial2
-//#define BACNET_DERE_PIN        2
+//#define BACNET_DERE_PIN        18
 //#define BACNET_DEBUG_UART_FREE 1
 
 /* ================================================================
@@ -196,7 +196,7 @@
 #  elif defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_IDF_TARGET_ESP32S3)
      /* ESP32-S3 — Serial2 */
 #    define BACNET_RS485_SERIAL    Serial2
-#    define BACNET_DERE_PIN        2
+#    define BACNET_DERE_PIN        18
 #    define BACNET_DEBUG_UART_FREE 1
 
 #  elif defined(ARDUINO_ARCH_ESP32)
@@ -226,8 +226,14 @@ BACnetMSTP bacnet(BACNET_RS485_SERIAL, BACNET_DERE_PIN);
 static uint32_t s_uptime_seconds = 0;
 static uint32_t s_last_tick_ms   = 0;
 
-/* AV instance used for uptime reporting */
-#define AV_UPTIME_INSTANCE  0U
+/*
+ * AV instance for uptime reporting.
+ * AV:99 ("Uptime") has no hardware read_callback, so the value written
+ * here is returned as-is by BACnet ReadProperty.
+ * Do NOT use AV:0–AV:3 — those have ADC read_callbacks that override
+ * any written present_value.
+ */
+#define AV_UPTIME_INSTANCE  99U
 
 
 /* ============================================================
@@ -291,7 +297,7 @@ void loop()
         s_last_tick_ms += 1000UL;   /* drift-free: add fixed interval, not now */
         s_uptime_seconds++;
 
-        /* Write uptime in hours to AV:0 — visible via BACnet ReadProperty */
+        /* Write uptime in hours to AV:99 — visible via BACnet ReadProperty */
         float hours = (float)s_uptime_seconds / 3600.0f;
         bacnet.analogValues().setPresentValue(AV_UPTIME_INSTANCE, hours);
     }

@@ -72,6 +72,13 @@ public:
      */
     void task ();                           /* KEYWORD2 */
 
+    /**
+     * Trigger an unsolicited I-Am broadcast on the next task() call.
+     * Useful after changing the device instance or on startup to announce
+     * presence to the network without waiting for a Who-Is.
+     */
+    void sendIAm();                         /* KEYWORD2 */
+
     /** Direct access to the Device object for advanced configuration. */
     BACnetDevice      &device();            /* KEYWORD2 */
 
