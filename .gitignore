@@ -1,21 +1,19 @@
-# Internal project documentation (not for public repo)
-Phase-1/
-Data reference/
-
-# GitHub Copilot agents and instructions (internal tooling)
-.github/
-
 # Arduino IDE build output
-.build/
+build/
+*.elf
+*.hex
+*.bin
+*.map
 
-# VS Code local settings (optional to share)
-.vscode/
-
-# macOS metadata
+# OS files
 .DS_Store
-
-# Windows thumbnail cache
 Thumbs.db
 
-# Ignore packaged library zips
+# IDE files
+.vscode/
+*.code-workspace
+*.suo
+*.user
+
+# Zip archives (generated, not source)
 *.zip

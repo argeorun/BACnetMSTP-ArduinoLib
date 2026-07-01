@@ -1,131 +1,53 @@
-#######################################
-# BACnetMSTP Arduino Library
-# Syntax Coloring Map
-# https://arduino.github.io/arduino-cli/library-specification/#keywords
-#######################################
+# Syntax colouring for BACnetMSTP library
+# https://github.com/argeorun/BACnetMSTP-ArduinoLib
+# Format: KEYWORD TAB KEYWORD_TYPE
 
 #######################################
-# KEYWORD1 — Class / Type names
+# Classes (KEYWORD1)
 #######################################
 
-BACnetMSTP	KEYWORD1
 BACnetDevice	KEYWORD1
-BACnetAnalogValue	KEYWORD1
-BACnetBinaryValue	KEYWORD1
-BACnetPort	KEYWORD1
-BACnetNVData	KEYWORD1
-BACnetObject	KEYWORD1
-INACTIVE	KEYWORD1
-ACTIVE	KEYWORD1
+BACnetAV	KEYWORD1
+BACnetBV	KEYWORD1
+BACnetHardware	KEYWORD1
+BACnetRS485	KEYWORD1
+BACnetStorage	KEYWORD1
+AVProxy	KEYWORD1
+BVProxy	KEYWORD1
 
 #######################################
-# KEYWORD2 — Methods / Functions
+# Methods (KEYWORD2)
 #######################################
 
 begin	KEYWORD2
-task	KEYWORD2
-
-device	KEYWORD2
-analogValues	KEYWORD2
-binaryValues	KEYWORD2
-port	KEYWORD2
-nvdata	KEYWORD2
-
-getPresentValue	KEYWORD2
-setPresentValue	KEYWORD2
-getUnits	KEYWORD2
-setUnits	KEYWORD2
-isWritable	KEYWORD2
-
-getState	KEYWORD2
-setState	KEYWORD2
-getPin	KEYWORD2
-isOutput	KEYWORD2
-
-getInstanceNumber	KEYWORD2
-setInstanceNumber	KEYWORD2
-getName	KEYWORD2
-setName	KEYWORD2
-getDescription	KEYWORD2
-setDescription	KEYWORD2
-getLocation	KEYWORD2
-setLocation	KEYWORD2
-getModelName	KEYWORD2
-setModelName	KEYWORD2
-getAppVersion	KEYWORD2
-setAppVersion	KEYWORD2
-getApduTimeout	KEYWORD2
-setApduTimeout	KEYWORD2
-getApduRetries	KEYWORD2
-setApduRetries	KEYWORD2
-getVendorName	KEYWORD2
-getVendorId	KEYWORD2
-
-getMstpMac	KEYWORD2
-setMstpMac	KEYWORD2
-getMstpBaud	KEYWORD2
-setMstpBaud	KEYWORD2
-getMstpMaxMaster	KEYWORD2
-setMstpMaxMaster	KEYWORD2
-
-getBaud	KEYWORD2
-setBaud	KEYWORD2
-setDEREPin	KEYWORD2
-getDEREPin	KEYWORD2
-
+update	KEYWORD2
+AV	KEYWORD2
+BV	KEYWORD2
+get	KEYWORD2
+set	KEYWORD2
+init	KEYWORD2
 count	KEYWORD2
 validInstance	KEYWORD2
-objectType	KEYWORD2
+presentValue	KEYWORD2
+presentValueSet	KEYWORD2
 readProperty	KEYWORD2
 writeProperty	KEYWORD2
-
-isValid	KEYWORD2
-readUint8	KEYWORD2
-writeUint8	KEYWORD2
-readUint24	KEYWORD2
-writeUint24	KEYWORD2
-
-writePropertyLED	KEYWORD2
-readPropertyAV	KEYWORD2
-readPropertyBV	KEYWORD2
-setLED	KEYWORD2
-getLED	KEYWORD2
-discoverDevices	KEYWORD2
-validateWriteProperty	KEYWORD2
+pinInit	KEYWORD2
+pinWrite	KEYWORD2
+pinRead	KEYWORD2
+adcInit	KEYWORD2
+adcResult10bit	KEYWORD2
+adcMillivolts	KEYWORD2
+stackSize	KEYWORD2
+stackUnused	KEYWORD2
 
 #######################################
-# LITERAL1 — Constants / #define macros
+# Constants (LITERAL1)
 #######################################
 
 BACNET_MAX_INSTANCE	LITERAL1
-BACNET_PROTOCOL_REVISION	LITERAL1
-
-BACNET_EEPROM_INTERNAL	LITERAL1
-BACNET_EEPROM_FLASH_EMU	LITERAL1
-BACNET_EEPROM_EXTERNAL_I2C	LITERAL1
-BACNET_EEPROM_BACKEND	LITERAL1
-BACNET_EXT_EEPROM_I2C_ADDR	LITERAL1
-BACNET_EXT_EEPROM_PAGE_SIZE	LITERAL1
-BACNET_EXT_EEPROM_SIZE	LITERAL1
-
-BACNET_DEVICE_MODEL_NAME	LITERAL1
-BACNET_APP_VERSION	LITERAL1
-BACNET_APDU_TIMEOUT	LITERAL1
-BACNET_APDU_RETRIES	LITERAL1
-BACNET_VENDOR_NAME	LITERAL1
 BACNET_VENDOR_ID	LITERAL1
-BACNET_DEVICE_INSTANCE_DEFAULT	LITERAL1
-
-NV_EEPROM_MSTP_MAC	LITERAL1
-NV_EEPROM_MSTP_BAUD_K	LITERAL1
-NV_EEPROM_MSTP_MAX_MASTER	LITERAL1
-NV_EEPROM_DEVICE_0	LITERAL1
 MAX_APDU	LITERAL1
-
 PIN_LED	LITERAL1
-PIN_D3	LITERAL1
-PIN_D4	LITERAL1
-PIN_ADC0	LITERAL1
-PROP_PRESENT_VALUE	LITERAL1
-PROP_OBJECT_IDENTIFIER	LITERAL1
-BACNET_DEVICE_LED_PIN	LITERAL1
+BINARY_ACTIVE	LITERAL1
+BINARY_INACTIVE	LITERAL1

@@ -1,24 +1,6 @@
-/**
- * @brief This module manages the Analog to Digital Converter (ADC)
- * @author Steve Karg <skarg@users.sourceforge.net>
- * @date 2007
- * @copyright SPDX-License-Identifier: MIT
- */
+/* Step 2: adc.h — redirects to BACnetHardware.h.
+   adc_init, adc_enable, adc_millivolts etc. are declared there. */
 #ifndef ADC_H
 #define ADC_H
-
-#include <stdint.h>
-#ifdef __cplusplus
-extern "C" {
-#endif 
-
-
-void adc_enable(uint8_t index);
-uint8_t adc_result_8bit(uint8_t index);
-uint16_t adc_result_10bit(uint8_t index);
-uint16_t adc_millivolts(uint8_t index);
-void adc_init(void);
-#ifdef __cplusplus
-}
-#endif
+#include "BACnetHardware.h"
 #endif

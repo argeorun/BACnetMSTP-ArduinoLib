@@ -86,18 +86,12 @@ __inline int c99_snprintf(char *outBuf, size_t size, const char *format, ...)
 
 /* some common min/max as defined in windef.h */
 #ifndef NOMINMAX
-#ifndef __cplusplus
-/* C-only: define min/max macros. In C++ mode, use std::min / std::max
- * (available via <algorithm> or Arduino.h's "using std::min; using std::max").
- * Defining these as macros in C++ breaks template declarations in
- * <algorithm>/<bits/algorithmfwd.h> with gcc >= 14 (ESP32 core 3.3.4+). */
 #ifndef max
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #endif
 #ifndef min
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #endif
-#endif /* __cplusplus */
 #endif /* NOMINMAX */
 
 #if defined(__MINGW32__)

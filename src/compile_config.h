@@ -132,59 +132,6 @@
 #define BIG_ENDIAN 0
 #endif
 
-/* Default device instance used when none is configured in NV data */
-#ifndef BACNET_DEVICE_INSTANCE_DEFAULT
-#define BACNET_DEVICE_INSTANCE_DEFAULT 260123
-#endif
-
-/* Default device and vendor metadata (can be overridden by sketches) */
-#ifndef BACNET_DEVICE_MODEL_NAME
-#define BACNET_DEVICE_MODEL_NAME  "Arduino BACnet Device"
-#endif
-
-#ifndef BACNET_APP_VERSION
-#define BACNET_APP_VERSION        "1.0"
-#endif
-
-#ifndef BACNET_APDU_TIMEOUT
-#define BACNET_APDU_TIMEOUT       60000UL
-#endif
-
-#ifndef BACNET_APDU_RETRIES
-#define BACNET_APDU_RETRIES       0
-#endif
-
-#ifndef BACNET_VENDOR_NAME
-#define BACNET_VENDOR_NAME        "Open Source"
-#endif
-
-#ifndef BACNET_VENDOR_ID
-#define BACNET_VENDOR_ID          559 /* Example vendor ID */
-#endif
-
-/* ==========================================================================
-   EEPROM backend selection
-   - BACNET_EEPROM_INTERNAL: on-chip AVR EEPROM (default for AVR)
-   - BACNET_EEPROM_FLASH_EMU: flash-emulation (ESP32 NVS / STM32 flash)
-   - BACNET_EEPROM_EXTERNAL_I2C: external I2C EEPROM (AT24Cxx)
-   Selected automatically based on architecture if not provided by user.
-   ========================================================================== */
-#define BACNET_EEPROM_INTERNAL      0
-#define BACNET_EEPROM_FLASH_EMU     1
-#define BACNET_EEPROM_EXTERNAL_I2C  2
-
-#ifndef BACNET_EEPROM_BACKEND
-#  if defined(ARDUINO_ARCH_AVR)
-#    define BACNET_EEPROM_BACKEND BACNET_EEPROM_INTERNAL
-#  else
-#    define BACNET_EEPROM_BACKEND BACNET_EEPROM_FLASH_EMU
-#  endif
-#endif
-
-#if BACNET_EEPROM_BACKEND > 2
-#  error "Unknown BACNET_EEPROM_BACKEND value — must be 0 (INTERNAL), 1 (FLASH_EMU), or 2 (EXTERNAL_I2C)"
-#endif
-
 /* ============================================================================
    BACNET STACK EXPORTS
    ============================================================================ */
@@ -227,6 +174,19 @@
  * Disabled for Arduino (trend logs disabled due to RAM)
  * #define READ_RANGE 1
  */
+
+/* ============================================================================
+   DEBUG OUTPUT CONTROL
+   Two independent categories. Enabled by default on all boards except UNO
+   (UNO has no spare serial port and insufficient RAM for debug output).
+   Comment out either define to silence that category.
+     BACNET_DEBUG_BOOT    - banner, MAC address, baud rate, stack size at startup
+     BACNET_DEBUG_TRAFFIC - [rx] [apdu] [rp] [wp] [whois] [tick] at runtime
+   ============================================================================ */
+#if !defined(ARDUINO_AVR_UNO)
+#  define BACNET_DEBUG_BOOT
+// #  define BACNET_DEBUG_TRAFFIC
+#endif
 
 /* ============================================================================
    NOTES AND RECOMMENDATIONS
